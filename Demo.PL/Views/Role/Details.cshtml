@@ -1,0 +1,19 @@
+﻿@model RoleViewModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Role Details</h1>
+<br />
+<br />
+
+<form>
+
+    <partial name="PartialViews/DetailsDeleteRolePartial" />
+
+    <input type="submit" value="Edit" class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.Id" />
+    <a asp-action="Index" class="btn btn-light">Back To List</a>
+</form>
+

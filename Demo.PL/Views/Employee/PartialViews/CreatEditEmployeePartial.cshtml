@@ -1,0 +1,70 @@
+﻿@model EmployeeViewModel
+@inject IUnitOfWork _unitOfWork
+
+@{
+    // var departments = new SelectList(ViewData["Departments"] as IEnumerable<Department>, 
+    //     nameof(Department.Id), 
+    //     nameof(Department.Name));
+    //or
+    //var departments = new SelectList(ViewBag.Departments, nameof(Department.Id), nameof(Department.Name));
+    //or
+    var departments = new SelectList(_unitOfWork.DepartmentRepository.GetAll(), nameof(Department.Id), nameof(Department.Name));
+}
+<div class="form-group">
+    <label asp-for="Image" class="col-form-label"></label>
+    <input asp-for="Image" class="form-control" />
+    <span asp-validation-for="Image" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Name" class="col-form-label"></label>
+    <input type="text" asp-for="Name" class="form-control" />
+    <span asp-validation-for="Name" class="text-danger"></span>
+</div>
+
+<div class="form-group">
+    <label asp-for="Age" class="col-form-label"></label>
+    <input type="number" asp-for="Age" class="form-control" />
+    <span asp-validation-for="Age" class="text-danger"></span>
+</div>
+
+<div class="form-group">
+    <label asp-for="Address" class="col-form-label"></label>
+    <input type="text" asp-for="Address" class="form-control" />
+    <span asp-validation-for="Address" class="text-danger"></span>
+</div>
+
+<div class="form-group">
+    <label asp-for="Salary" class="col-form-label"></label>
+    <input type="text" asp-for="Salary" class="form-control" />
+</div>
+
+<div class="form-check">
+    <input asp-for="IsActive" class="form-check-input" />
+    <label asp-for="IsActive" class="col-form-label"></label>
+</div>
+
+<div class="form-group">
+    <label asp-for="Email" class="col-form-label"></label>
+    <input type="text" asp-for="Email" class="form-control" />
+    <span asp-validation-for="Email" class="text-danger"></span>
+</div>
+
+<div class="form-group">
+    <label asp-for="PhoneNumber" class="col-form-label"></label>
+    <input type="text" asp-for="PhoneNumber" class="form-control" />
+    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+</div>
+
+<div class="form-group">
+    <label asp-for="HireDate" class="col-form-label"></label>
+    <input asp-for="HireDate" class="form-control" />
+</div>
+
+<div class="form-group">
+    <label asp-for="Department" class="col-form-label"></label>
+
+    <select class="form-control" asp-items="@departments" asp-for="DepartmentId">
+        <option value="@null" >--Select Department</option>
+    </select>
+    
+</div>
